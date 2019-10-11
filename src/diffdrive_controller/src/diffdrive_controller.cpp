@@ -9,7 +9,7 @@ void cmd_vel_callback(const geometry_msgs::Twist::ConstPtr& twist_msg){
 }
 int main(int argc, char** argv){
         // Initialize ROS system and create node object
-        ros::init(arc, argv,"diffdrive");
+        ros::init(argc, argv,"diffdrive");
         ros::NodeHandle nh;
 
         // Create and initialize subscriber object
