@@ -14,5 +14,6 @@ int main(int argc, char** argv){
 
         // Create and initialize subscriber object
         ros::Subscriber vel_sub = nh.subscribe("/cmd_vel", 10, cmd_vel_callback);
+        ros::spin();
 
 }
