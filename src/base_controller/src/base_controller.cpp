@@ -4,6 +4,13 @@
 double rwheel_tangential_vel;
 double lwheel_tangential_vel;
 
+double wheel_radius;
+
+double tangential_2_angular_vel(double tang_vel){
+        return tang_vel/wheel_radius;
+
+}
+
 void rwheel_tang_vel_callback(const std_msgs::Float32::ConstPtr& rtang_vel){
         rwheel_tangential_vel = rtang_vel->data;
 	ROS_INFO("rtan: %f",rwheel_tangential_vel );
