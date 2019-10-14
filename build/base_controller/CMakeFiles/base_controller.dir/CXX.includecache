@@ -11,6 +11,8 @@ ros/ros.h
 -
 std_msgs/Float32.h
 -
+math.h
+-
 
 /opt/ros/kinetic/include/ros/advertise_options.h
 ros/forwards.h
