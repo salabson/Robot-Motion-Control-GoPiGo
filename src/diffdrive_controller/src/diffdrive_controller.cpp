@@ -4,7 +4,7 @@
 
 std_msgs::Float32 rwheel_tangential_vel;
 std_msgs::Float32 lwheel_tangential_vel ;
-double robot_width;
+double robot_width = 0.14;
 
 void cmd_vel_callback(const geometry_msgs::Twist::ConstPtr& twist_msg){
         double vel_x = twist_msg->linear.x;
