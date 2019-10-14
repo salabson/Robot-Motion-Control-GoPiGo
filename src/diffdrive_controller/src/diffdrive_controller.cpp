@@ -2,6 +2,8 @@
 #include<std_msgs/Float32.h>
 #include<geometry_msgs/Twist.h>
 
+std_msgs::Float32 rwheel_tangential_vel;
+std_msgs::Float32 lwheel_tangential_vel ;
 double robot_width;
 
 void cmd_vel_callback(const geometry_msgs::Twist::ConstPtr& twist_msg){
@@ -25,6 +27,9 @@ void cmd_vel_callback(const geometry_msgs::Twist::ConstPtr& twist_msg){
                 vl = vel_x - vel_th*robot_width/2.0;
 
         }
+
+        rwheel_tangential_vel.data = vr;
+        lwheel_tangential_vel.data = vl;
 }
 int main(int argc, char** argv){
         // Initialize ROS system and create node object
@@ -33,6 +38,21 @@ int main(int argc, char** argv){
 
         // Create and initialize subscriber object
         ros::Subscriber vel_sub = nh.subscribe("/cmd_vel", 10, cmd_vel_callback);
-        ros::spin();
+        
+        // Create and initialize publisher objects
+        ros::Publisher  rwheel_tang_vel_pub = nh.advertise<std_msgs::Float32>("/rwheel_tangential_vel", 10); 
+        ros::Publisher  lwheel_tang_vel_pub = nh.advertise<std_msgs::Float32>("/lwheel_tangential_vel", 10); 
+        
+        ros::Rate rate(20);
+        
+        // start publishing
+        while(ros::ok()){
+                rwheel_tang_vel_pub.publish(rwheel_tangential_vel);
+                lwheel_tang_vel_pub.publish(lwheel_tangential_vel);
+                ros::spinOnce();
+                rate.sleep();
+        }
+
+        return 0;
 
 }
