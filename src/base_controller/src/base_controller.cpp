@@ -17,24 +17,27 @@ double min_motor_cmd = 43;
 
 
 
-
+// right wheel tangential velocity callback
 void rwheel_tang_vel_callback(const std_msgs::Float32::ConstPtr& rtang_vel){
         rwheel_tangential_vel = rtang_vel->data;
 	ROS_INFO("rtan: %f",rwheel_tangential_vel );
     
 }
 
+// left wheel tangential velocity callback
 void lwheel_tang_vel_callback(const std_msgs::Float32::ConstPtr& ltang_vel){
         lwheel_tangential_vel= ltang_vel->data;
 	ROS_INFO("ltan: %f",lwheel_tangential_vel );
 
 }
 
+// compute angular velocity
 double tangential_2_angular_vel(double tang_vel){
        return tang_vel/wheel_radius;
 
 }
 
+// This method map angular velocity to motor command
 double angular_2_motor_cmd(double angular_vel){
         if(angular_vel == 0) return 0;
 
@@ -84,7 +87,7 @@ double angular_2_motor_cmd(double angular_vel){
 
 
 
-
+// Compute  motor command
 double  calculate_motorcmd(double tang_vel){
         double angular_vel = tangential_2_angular_vel(tang_vel);
         return angular_2_motor_cmd(angular_vel);
