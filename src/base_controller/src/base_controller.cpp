@@ -2,6 +2,9 @@
 #include<std_msgs/Float32.h>
 #include<math.h>
 
+std_msgs::Float32 rwheel_motorcmd;
+std_msgs::Float32 lwheel_motorcmd;
+
 double rwheel_tangential_vel;
 double lwheel_tangential_vel;
 
@@ -60,6 +63,11 @@ double angular_2_motor_cmd(double angular_vel){
 
 }
 
+double  calculate_motorcmd(double tang_vel){
+        double angular_vel = tangential_2_angular_vel(tang_vel);
+        return angular_2_motor_cmd(angular_vel);
+        
+}
 
 
 void rwheel_tang_vel_callback(const std_msgs::Float32::ConstPtr& rtang_vel){
@@ -82,5 +90,23 @@ int main(int argc, char** argv){
         // Create subscribers objects
         ros::Subscriber rwheel_tang_vel_sub = nh.subscribe("/rwheel_tangential_vel",10,rwheel_tang_vel_callback); 
         ros::Subscriber lwheel_tang_vel_sub = nh.subscribe("/lwheel_tangential_vel",10,lwheel_tang_vel_callback);
-        ros::spin();
+
+        // Create publishers objects
+        ros::Publisher rwheel_motorcmd_pub = nh.advertise<std_msgs::Float32>("/rwheel_motorcmd",10);  
+        ros::Publisher lwheel_motorcmd_pub = nh.advertise<std_msgs::Float32>("/lwheel_motorcmd",10); 
+
+        ros::Rate rate(20);
+
+        //start publishing
+        while(ros::ok()){ 
+                rwheel_motorcmd.data = calculate_motorcmd(rwheel_tangential_vel);
+                lwheel_motorcmd.data = calculate_motorcmd(lwheel_tangential_vel);
+
+                rwheel_motorcmd_pub.publish(rwheel_motorcmd);
+                lwheel_motorcmd_pub.publish(lwheel_motorcmd);
+                ros::spinOnce();
+                rate.sleep();
+        }
+        
+        return 0;
 }
