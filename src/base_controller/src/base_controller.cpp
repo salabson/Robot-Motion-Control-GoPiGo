@@ -31,17 +31,18 @@ void lwheel_tang_vel_callback(const std_msgs::Float32::ConstPtr& ltang_vel){
 }
 
 double tangential_2_angular_vel(double tang_vel){
-       double  result = tang_vel/wheel_radius;
-        ROS_INFO("Ang vel : %f", result);
+       return tang_vel/wheel_radius;
 
 }
 
 double angular_2_motor_cmd(double angular_vel){
+        if(angular_vel == 0) return 0;
+
         double slope = (max_motor_cmd-min_motor_cmd)/(max_ang_vel-min_ang_vel);
-        double intercept = max_motor_cmd - slope*angular_vel;
+        double intercept = max_motor_cmd - slope*max_ang_vel;
         double motor_cmd;
        // positive angular velocity
-       if(angular_vel >= 0){
+       if(angular_vel >0){
                motor_cmd = slope*angular_vel+intercept;
                
                // clip motor command to maximum motor command
@@ -50,7 +51,7 @@ double angular_2_motor_cmd(double angular_vel){
                }
                
                // clip motor command to minimum motor command
-               if(max_motor_cmd < min_motor_cmd){
+               if(motor_cmd< min_motor_cmd){
                        motor_cmd = min_motor_cmd;
                }
                
@@ -69,11 +70,13 @@ double angular_2_motor_cmd(double angular_vel){
                }
                
                // clip motor command to minimum motor command
-               if(max_motor_cmd < min_motor_cmd){
+               if(motor_cmd < min_motor_cmd){
                        motor_cmd = min_motor_cmd;
                }
 
-               return -motor_cmd;
+               motor_cmd = -motor_cmd;
+
+               return motor_cmd;
        }
 
 
