@@ -1157,6 +1157,24 @@ clean: diffdrive_controller/CMakeFiles/diffdrive_controller.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory gopigo_interface
+
+# Convenience name for "all" pass in the directory.
+gopigo_interface/all:
+
+.PHONY : gopigo_interface/all
+
+# Convenience name for "clean" pass in the directory.
+gopigo_interface/clean:
+
+.PHONY : gopigo_interface/clean
+
+# Convenience name for "preinstall" pass in the directory.
+gopigo_interface/preinstall:
+
+.PHONY : gopigo_interface/preinstall
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

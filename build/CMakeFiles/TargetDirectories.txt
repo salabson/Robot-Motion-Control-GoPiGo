@@ -64,3 +64,10 @@
 /home/salabson/gopigo_ws/build/diffdrive_controller/CMakeFiles/install/strip.dir
 /home/salabson/gopigo_ws/build/diffdrive_controller/CMakeFiles/install/local.dir
 /home/salabson/gopigo_ws/build/diffdrive_controller/CMakeFiles/edit_cache.dir
+/home/salabson/gopigo_ws/build/gopigo_interface/CMakeFiles/list_install_components.dir
+/home/salabson/gopigo_ws/build/gopigo_interface/CMakeFiles/install.dir
+/home/salabson/gopigo_ws/build/gopigo_interface/CMakeFiles/rebuild_cache.dir
+/home/salabson/gopigo_ws/build/gopigo_interface/CMakeFiles/install/strip.dir
+/home/salabson/gopigo_ws/build/gopigo_interface/CMakeFiles/install/local.dir
+/home/salabson/gopigo_ws/build/gopigo_interface/CMakeFiles/test.dir
+/home/salabson/gopigo_ws/build/gopigo_interface/CMakeFiles/edit_cache.dir

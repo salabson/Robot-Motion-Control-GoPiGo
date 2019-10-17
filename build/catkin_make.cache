@@ -1,2 +1,2 @@
-base_controller:diffdrive_controller
+base_controller:diffdrive_controller:gopigo_interface
 -DCATKIN_DEVEL_PREFIX=/home/salabson/gopigo_ws/devel -DCMAKE_INSTALL_PREFIX=/home/salabson/gopigo_ws/install -G Unix Makefiles

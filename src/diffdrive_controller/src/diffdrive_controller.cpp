@@ -21,7 +21,8 @@ class DiffDrive{
 		
 	public:
 		//Create class constructor
-		DriffDrive(ros::NodeHandle nh*){
+		DiffDrive(ros::NodeHandle *nh){
+
 			robot_width=0.14;
 			
 			//Initialize subscriber object
@@ -86,7 +87,7 @@ int main(int argc, char** argv){
         ros::NodeHandle nh;
 
         // Create class instance
-	DiffDrive diffdrive = Diffdrive(&nh);
+	DiffDrive diffdrive = DiffDrive(&nh);
 	
 	//Run the main program
 	diffdrive.spin();

@@ -17,11 +17,15 @@ set(CMAKE_MAKEFILE_DEPENDS
   "catkin_generated/order_packages.cmake"
   "diffdrive_controller/catkin_generated/ordered_paths.cmake"
   "diffdrive_controller/catkin_generated/package.cmake"
+  "gopigo_interface/catkin_generated/ordered_paths.cmake"
+  "gopigo_interface/catkin_generated/package.cmake"
   "/home/salabson/gopigo_ws/src/CMakeLists.txt"
   "/home/salabson/gopigo_ws/src/base_controller/CMakeLists.txt"
   "/home/salabson/gopigo_ws/src/base_controller/package.xml"
   "/home/salabson/gopigo_ws/src/diffdrive_controller/CMakeLists.txt"
   "/home/salabson/gopigo_ws/src/diffdrive_controller/package.xml"
+  "/home/salabson/gopigo_ws/src/gopigo_interface/CMakeLists.txt"
+  "/home/salabson/gopigo_ws/src/gopigo_interface/package.xml"
   "/opt/ros/kinetic/share/catkin/cmake/../package.xml"
   "/opt/ros/kinetic/share/catkin/cmake/all.cmake"
   "/opt/ros/kinetic/share/catkin/cmake/assert.cmake"
@@ -97,6 +101,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/ros/kinetic/share/rosgraph_msgs/cmake/rosgraph_msgs-msg-extras.cmake"
   "/opt/ros/kinetic/share/rosgraph_msgs/cmake/rosgraph_msgsConfig-version.cmake"
   "/opt/ros/kinetic/share/rosgraph_msgs/cmake/rosgraph_msgsConfig.cmake"
+  "/opt/ros/kinetic/share/rospy/cmake/rospyConfig-version.cmake"
+  "/opt/ros/kinetic/share/rospy/cmake/rospyConfig.cmake"
   "/opt/ros/kinetic/share/rostime/cmake/rostimeConfig-version.cmake"
   "/opt/ros/kinetic/share/rostime/cmake/rostimeConfig.cmake"
   "/opt/ros/kinetic/share/std_msgs/cmake/std_msgs-msg-extras.cmake"
@@ -160,6 +166,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "gtest/gtest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "base_controller/CMakeFiles/CMakeDirectoryInformation.cmake"
   "diffdrive_controller/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "gopigo_interface/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

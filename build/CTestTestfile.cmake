@@ -7,3 +7,4 @@
 subdirs(gtest)
 subdirs(base_controller)
 subdirs(diffdrive_controller)
+subdirs(gopigo_interface)
