@@ -31,8 +31,8 @@ class GopigoInterface:
 			self.GPG.set_motor_power(self.GPG.MOTOR_LEFT,self.lwheel_motorcmd.data)
 			rate.sleep()
     
-    			# call the callbacks
-   			rospy.spin()
+    		# call the callbacks
+   		rospy.spin()
 
 
 
