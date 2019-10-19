@@ -16,6 +16,8 @@ class GopigoInterface:
 		# Create subscriber objects
     		self.rwheel_motorcmd_sub = rospy.Subscriber("/rwheel_motorcmd", Float32, self.rwheel_motorcmd_callback)
     		self.lwheel_motorcmd_sub = rospy.Subscriber("/lwheel_motorcmd", Float32, self.lwheel_motorcmd_callback)
+		# Create publisher object
+		self.encoders_pub = rospy.Publisher("/encoder_reading",10);
 
 	
 	def rwheel_motorcmd_callback(self, msg):
@@ -41,6 +43,9 @@ class GopigoInterface:
 			# Reader encoders
 			encoder_reading.left = self.GPG.get_motor_encoder(self.GPG.MOTOR_LEFT)
 			encoder_reading.right = self.GPG.get_motor_encoder(self.GPG.MOTOR_RIGHT)
+
+			# publish encoder reading
+			self.encoders_pub.publish(encoder_reading)
 			rate.sleep()
     
     		# call the callbacks
