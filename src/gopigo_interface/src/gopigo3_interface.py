@@ -2,7 +2,7 @@
 
 import rospy
 from std_msgs.msg import Float32
-from gopigo_interface import Encoder
+from gopigo_interface.msg import Encoder
 import gopigo3
 
 class GopigoInterface:
@@ -12,12 +12,12 @@ class GopigoInterface:
 		# Create gopigo object driver
 		self.GPG = gopigo3.GoPiGo3()
 		# Create encoder object
-		self.encorder_reading = Encoder()
+		self.encoder_reading = Encoder()
 		# Create subscriber objects
     		self.rwheel_motorcmd_sub = rospy.Subscriber("/rwheel_motorcmd", Float32, self.rwheel_motorcmd_callback)
     		self.lwheel_motorcmd_sub = rospy.Subscriber("/lwheel_motorcmd", Float32, self.lwheel_motorcmd_callback)
 		# Create publisher object
-		self.encoders_pub = rospy.Publisher("/encoder_reading",10);
+		self.encoders_pub = rospy.Publisher("/encoder_reading",Encoder,queue_size=10)
 
 	
 	def rwheel_motorcmd_callback(self, msg):
@@ -31,8 +31,8 @@ class GopigoInterface:
 	
 	def spin(self):
 		# Reset encoders
-		self.GPG.offset_motor_encoder(self.GPG.MOTOR_LEFT, self.get_motor_encoder(self.GPG.MOTOR.LEFT))
-		self.GPG.offset_motor_encoder(self.GPG.MOTOR_RIGHT, self.get_motor_encoder(self.GPG.MOTOR.RIGHT))
+		self.GPG.offset_motor_encoder(self.GPG.MOTOR_LEFT, self.GPG.get_motor_encoder(self.GPG.MOTOR_LEFT))
+		self.GPG.offset_motor_encoder(self.GPG.MOTOR_RIGHT, self.GPG.get_motor_encoder(self.GPG.MOTOR_RIGHT))
 
 		rate = rospy.Rate(20)
     		while not rospy.is_shutdown():
@@ -41,11 +41,11 @@ class GopigoInterface:
 			self.GPG.set_motor_power(self.GPG.MOTOR_LEFT,self.lwheel_motorcmd.data)
 
 			# Reader encoders
-			encoder_reading.left = self.GPG.get_motor_encoder(self.GPG.MOTOR_LEFT)
-			encoder_reading.right = self.GPG.get_motor_encoder(self.GPG.MOTOR_RIGHT)
+			self.encoder_reading.left = self.GPG.get_motor_encoder(self.GPG.MOTOR_LEFT)
+			self.encoder_reading.right = self.GPG.get_motor_encoder(self.GPG.MOTOR_RIGHT)
 
 			# publish encoder reading
-			self.encoders_pub.publish(encoder_reading)
+			self.encoders_pub.publish(self.encoder_reading)
 			rate.sleep()
     
     		# call the callbacks
