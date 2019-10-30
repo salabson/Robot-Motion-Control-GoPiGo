@@ -12,7 +12,7 @@ class GopigoInterface:
 		# Create gopigo object driver
 		self.GPG = gopigo3.GoPiGo3()
 		# Create encoder object
-		self encorder_reading = Encoder()
+		self.encorder_reading = Encoder()
 		# Create subscriber objects
     		self.rwheel_motorcmd_sub = rospy.Subscriber("/rwheel_motorcmd", Float32, self.rwheel_motorcmd_callback)
     		self.lwheel_motorcmd_sub = rospy.Subscriber("/lwheel_motorcmd", Float32, self.lwheel_motorcmd_callback)
