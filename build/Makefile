@@ -292,7 +292,7 @@ _catkin_empty_exported_target: cmake_check_build_system
 
 # fast build rule for target.
 _catkin_empty_exported_target/fast:
-	$(MAKE) -f teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/build.make teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/build
+	$(MAKE) -f gopigo_description/CMakeFiles/_catkin_empty_exported_target.dir/build.make gopigo_description/CMakeFiles/_catkin_empty_exported_target.dir/build
 .PHONY : _catkin_empty_exported_target/fast
 
 #=============================================================================

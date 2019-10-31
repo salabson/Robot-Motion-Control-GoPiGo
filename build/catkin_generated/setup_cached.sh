@@ -8,3 +8,4 @@
 
 # modified environment variables
 export PWD="/home/salabson/gopigo_ws/build"
+export PYTHONPATH="/home/salabson/gopigo_ws/devel/lib/python2.7/dist-packages:$PYTHONPATH"

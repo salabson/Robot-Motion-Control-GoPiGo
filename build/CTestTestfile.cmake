@@ -5,6 +5,7 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
+subdirs(gopigo_description)
 subdirs(teleop_twist_keyboard)
 subdirs(base_controller)
 subdirs(diffdrive_controller)
