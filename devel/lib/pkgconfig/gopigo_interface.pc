@@ -3,6 +3,6 @@ prefix=/home/salabson/gopigo_ws/devel
 Name: gopigo_interface
 Description: Description of gopigo_interface
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/salabson/gopigo_ws/devel/include
 Libs: -L/home/salabson/gopigo_ws/devel/lib 
-Requires: 
+Requires: message_runtime

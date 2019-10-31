@@ -1,2 +1,2 @@
-base_controller:diffdrive_controller:gopigo_interface
+base_controller:diffdrive_controller:gopigo_interface:teleop_twist_keyboard
 -DCATKIN_DEVEL_PREFIX=/home/salabson/gopigo_ws/devel -DCMAKE_INSTALL_PREFIX=/home/salabson/gopigo_ws/install -G Unix Makefiles

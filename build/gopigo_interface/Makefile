@@ -56,28 +56,6 @@ CMAKE_BINARY_DIR = /home/salabson/gopigo_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -88,6 +66,27 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -111,16 +110,17 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -165,19 +165,211 @@ depend:
 	cd /home/salabson/gopigo_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/rule:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/rule
+.PHONY : gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/rule
+
+# Convenience name for target.
+gopigo_interface_generate_messages_py: gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/rule
+
+.PHONY : gopigo_interface_generate_messages_py
+
+# fast build rule for target.
+gopigo_interface_generate_messages_py/fast:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/build
+.PHONY : gopigo_interface_generate_messages_py/fast
+
+# Convenience name for target.
+gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/rule:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/rule
+.PHONY : gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+gopigo_interface_generate_messages_cpp: gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/rule
+
+.PHONY : gopigo_interface_generate_messages_cpp
+
+# fast build rule for target.
+gopigo_interface_generate_messages_cpp/fast:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/build
+.PHONY : gopigo_interface_generate_messages_cpp/fast
+
+# Convenience name for target.
+gopigo_interface/CMakeFiles/gopigo_interface_gencpp.dir/rule:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gopigo_interface/CMakeFiles/gopigo_interface_gencpp.dir/rule
+.PHONY : gopigo_interface/CMakeFiles/gopigo_interface_gencpp.dir/rule
+
+# Convenience name for target.
+gopigo_interface_gencpp: gopigo_interface/CMakeFiles/gopigo_interface_gencpp.dir/rule
+
+.PHONY : gopigo_interface_gencpp
+
+# fast build rule for target.
+gopigo_interface_gencpp/fast:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_gencpp.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_gencpp.dir/build
+.PHONY : gopigo_interface_gencpp/fast
+
+# Convenience name for target.
+gopigo_interface/CMakeFiles/gopigo_interface_generate_messages.dir/rule:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gopigo_interface/CMakeFiles/gopigo_interface_generate_messages.dir/rule
+.PHONY : gopigo_interface/CMakeFiles/gopigo_interface_generate_messages.dir/rule
+
+# Convenience name for target.
+gopigo_interface_generate_messages: gopigo_interface/CMakeFiles/gopigo_interface_generate_messages.dir/rule
+
+.PHONY : gopigo_interface_generate_messages
+
+# fast build rule for target.
+gopigo_interface_generate_messages/fast:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages.dir/build
+.PHONY : gopigo_interface_generate_messages/fast
+
+# Convenience name for target.
+gopigo_interface/CMakeFiles/gopigo_interface_genpy.dir/rule:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gopigo_interface/CMakeFiles/gopigo_interface_genpy.dir/rule
+.PHONY : gopigo_interface/CMakeFiles/gopigo_interface_genpy.dir/rule
+
+# Convenience name for target.
+gopigo_interface_genpy: gopigo_interface/CMakeFiles/gopigo_interface_genpy.dir/rule
+
+.PHONY : gopigo_interface_genpy
+
+# fast build rule for target.
+gopigo_interface_genpy/fast:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_genpy.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_genpy.dir/build
+.PHONY : gopigo_interface_genpy/fast
+
+# Convenience name for target.
+gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/rule:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/rule
+.PHONY : gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+gopigo_interface_generate_messages_eus: gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/rule
+
+.PHONY : gopigo_interface_generate_messages_eus
+
+# fast build rule for target.
+gopigo_interface_generate_messages_eus/fast:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/build
+.PHONY : gopigo_interface_generate_messages_eus/fast
+
+# Convenience name for target.
+gopigo_interface/CMakeFiles/gopigo_interface_geneus.dir/rule:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gopigo_interface/CMakeFiles/gopigo_interface_geneus.dir/rule
+.PHONY : gopigo_interface/CMakeFiles/gopigo_interface_geneus.dir/rule
+
+# Convenience name for target.
+gopigo_interface_geneus: gopigo_interface/CMakeFiles/gopigo_interface_geneus.dir/rule
+
+.PHONY : gopigo_interface_geneus
+
+# fast build rule for target.
+gopigo_interface_geneus/fast:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_geneus.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_geneus.dir/build
+.PHONY : gopigo_interface_geneus/fast
+
+# Convenience name for target.
+gopigo_interface/CMakeFiles/gopigo_interface_genlisp.dir/rule:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gopigo_interface/CMakeFiles/gopigo_interface_genlisp.dir/rule
+.PHONY : gopigo_interface/CMakeFiles/gopigo_interface_genlisp.dir/rule
+
+# Convenience name for target.
+gopigo_interface_genlisp: gopigo_interface/CMakeFiles/gopigo_interface_genlisp.dir/rule
+
+.PHONY : gopigo_interface_genlisp
+
+# fast build rule for target.
+gopigo_interface_genlisp/fast:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_genlisp.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_genlisp.dir/build
+.PHONY : gopigo_interface_genlisp/fast
+
+# Convenience name for target.
+gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/rule:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/rule
+.PHONY : gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+gopigo_interface_generate_messages_lisp: gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/rule
+
+.PHONY : gopigo_interface_generate_messages_lisp
+
+# fast build rule for target.
+gopigo_interface_generate_messages_lisp/fast:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/build
+.PHONY : gopigo_interface_generate_messages_lisp/fast
+
+# Convenience name for target.
+gopigo_interface/CMakeFiles/_gopigo_interface_generate_messages_check_deps_Encoder.dir/rule:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gopigo_interface/CMakeFiles/_gopigo_interface_generate_messages_check_deps_Encoder.dir/rule
+.PHONY : gopigo_interface/CMakeFiles/_gopigo_interface_generate_messages_check_deps_Encoder.dir/rule
+
+# Convenience name for target.
+_gopigo_interface_generate_messages_check_deps_Encoder: gopigo_interface/CMakeFiles/_gopigo_interface_generate_messages_check_deps_Encoder.dir/rule
+
+.PHONY : _gopigo_interface_generate_messages_check_deps_Encoder
+
+# fast build rule for target.
+_gopigo_interface_generate_messages_check_deps_Encoder/fast:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f gopigo_interface/CMakeFiles/_gopigo_interface_generate_messages_check_deps_Encoder.dir/build.make gopigo_interface/CMakeFiles/_gopigo_interface_generate_messages_check_deps_Encoder.dir/build
+.PHONY : _gopigo_interface_generate_messages_check_deps_Encoder/fast
+
+# Convenience name for target.
+gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/rule:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/rule
+.PHONY : gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+gopigo_interface_generate_messages_nodejs: gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/rule
+
+.PHONY : gopigo_interface_generate_messages_nodejs
+
+# fast build rule for target.
+gopigo_interface_generate_messages_nodejs/fast:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/build
+.PHONY : gopigo_interface_generate_messages_nodejs/fast
+
+# Convenience name for target.
+gopigo_interface/CMakeFiles/gopigo_interface_gennodejs.dir/rule:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gopigo_interface/CMakeFiles/gopigo_interface_gennodejs.dir/rule
+.PHONY : gopigo_interface/CMakeFiles/gopigo_interface_gennodejs.dir/rule
+
+# Convenience name for target.
+gopigo_interface_gennodejs: gopigo_interface/CMakeFiles/gopigo_interface_gennodejs.dir/rule
+
+.PHONY : gopigo_interface_gennodejs
+
+# fast build rule for target.
+gopigo_interface_gennodejs/fast:
+	cd /home/salabson/gopigo_ws/build && $(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_gennodejs.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_gennodejs.dir/build
+.PHONY : gopigo_interface_gennodejs/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... list_install_components"
-	@echo "... install"
 	@echo "... rebuild_cache"
-	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... test"
+	@echo "... list_install_components"
+	@echo "... install/strip"
+	@echo "... gopigo_interface_generate_messages_py"
+	@echo "... gopigo_interface_generate_messages_cpp"
+	@echo "... install/local"
+	@echo "... gopigo_interface_gencpp"
+	@echo "... gopigo_interface_generate_messages"
+	@echo "... gopigo_interface_genpy"
+	@echo "... gopigo_interface_generate_messages_eus"
+	@echo "... gopigo_interface_geneus"
+	@echo "... gopigo_interface_genlisp"
+	@echo "... gopigo_interface_generate_messages_lisp"
+	@echo "... install"
+	@echo "... _gopigo_interface_generate_messages_check_deps_Encoder"
+	@echo "... gopigo_interface_generate_messages_nodejs"
 	@echo "... edit_cache"
+	@echo "... gopigo_interface_gennodejs"
 .PHONY : help
 
 
