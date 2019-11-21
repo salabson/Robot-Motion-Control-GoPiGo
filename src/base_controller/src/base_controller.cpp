@@ -9,8 +9,11 @@ class BaseController{
 		std_msgs::Float32 rwheel_motorcmd;
 		std_msgs::Float32 lwheel_motorcmd;
 
-		double rwheel_tangential_vel;
-		double lwheel_tangential_vel;
+		double rwheel_tangential_vel_target;
+		double lwheel_tangential_vel_target;
+		
+		double rwheel_angular_vel_enc;
+		double lwheel_angular_vel_enc;
 
 		double wheel_radius;
 
@@ -20,8 +23,10 @@ class BaseController{
 		double min_motor_cmd;
 
 		// Create subscribers objects
-        	ros::Subscriber rwheel_tang_vel_sub;
-        	ros::Subscriber lwheel_tang_vel_sub;
+        	ros::Subscriber rwheel_tang_vel_target_sub;
+        	ros::Subscriber lwheel_tang_vel_target_sub;
+        	ros::Subscriber rwheel_angular_vel_enc_sub;
+        	ros::Subscriber lwheel_angular_vel_enc_sub;
 
       		 // Create publishers objects
         	 ros::Publisher rwheel_motorcmd_pub;  
@@ -37,11 +42,17 @@ class BaseController{
 			max_motor_cmd = 100;
 			min_motor_cmd = 43;
 
-			 // Initialize subscribers objects
-       			 rwheel_tang_vel_sub = nh->subscribe("/rwheel_tangential_vel",10,&BaseController::rwheel_tang_vel_callback,this); 
-        		 lwheel_tang_vel_sub = nh->subscribe("/lwheel_tangential_vel",10,&BaseController::lwheel_tang_vel_callback,this);
+			 //Initialize subscribers objects
+       			  rwheel_tang_vel_target_sub = nh->subscribe("/rwheel_tangential_vel_target",10,
+									&BaseController::rwheel_tang_vel_callback,this); 
+        		  lwheel_tang_vel_target_sub = nh->subscribe("/lwheel_tangential_vel_target",10,
+									&BaseController::lwheel_tang_vel_callback,this);
+			  rwheel_angular_vel_enc_sub = nh->subscribe("/rwheel_angular_vel_enc",10,
+						&BaseController::rwheel_angular_vel_enc_callback,this);
+			  lwheel_angular_vel_enc_sub = nh->subscribe("/lwheel_angular_vel_enc",10,
+									&BaseController::lwheel_angular_vel_enc_callback,this);
 
-        		// Create publishers objects
+        		// Initialize publishers objects
         		rwheel_motorcmd_pub = nh->advertise<std_msgs::Float32>("/rwheel_motorcmd",10);  
         		lwheel_motorcmd_pub = nh->advertise<std_msgs::Float32>("/lwheel_motorcmd",10); 
 
@@ -50,18 +61,30 @@ class BaseController{
 		
 		// right wheel tangential velocity callback
 		void rwheel_tang_vel_callback(const std_msgs::Float32::ConstPtr& rtang_vel){
-			rwheel_tangential_vel = rtang_vel->data;
-			ROS_INFO("rtan: %f",rwheel_tangential_vel );
+			rwheel_tangential_vel_target = rtang_vel->data;
+			ROS_INFO("rtan: %f",rwheel_tangential_vel_target);
 		    
 		}
 
 		// left wheel tangential velocity callback
 		void lwheel_tang_vel_callback(const std_msgs::Float32::ConstPtr& ltang_vel){
-			lwheel_tangential_vel= ltang_vel->data;
-			ROS_INFO("ltan: %f",lwheel_tangential_vel );
+			lwheel_tangential_vel_target= ltang_vel->data;
+			ROS_INFO("ltan: %f",lwheel_tangential_vel_target );
 
 		}
 
+		// right wheel encoder angular  velocity callback
+		void rwheel_angular_vel_enc_callback(const std_msgs::Float32::ConstPtr& rwheel_vel_enc){
+			
+			rwheel_angular_vel_enc = rwheel_vel_enc->data;
+		}
+		
+		
+		// left wheel encoder angular  velocity callback
+		void lwheel_angular_vel_enc_callback(const std_msgs::Float32::ConstPtr& lwheel_vel_enc){
+			
+			lwheel_angular_vel_enc = lwheel_vel_enc->data;
+		}
 
 		// compute angular velocity
 		double tangential_2_angular_vel(double tang_vel){
@@ -132,9 +155,9 @@ class BaseController{
 
         		//start publishing
         		while(ros::ok()){ 
-				ROS_INFO("rtan: %f ltan: %f", rwheel_tangential_vel, lwheel_tangential_vel);
-				rwheel_motorcmd.data = calculate_motorcmd(rwheel_tangential_vel);
-				lwheel_motorcmd.data = calculate_motorcmd(lwheel_tangential_vel);
+				ROS_INFO("rtan: %f ltan: %f", rwheel_tangential_vel_target, lwheel_tangential_vel_target);
+				rwheel_motorcmd.data = calculate_motorcmd(rwheel_tangential_vel_target);
+				lwheel_motorcmd.data = calculate_motorcmd(lwheel_tangential_vel_target);
 
 				rwheel_motorcmd_pub.publish(rwheel_motorcmd);
 				lwheel_motorcmd_pub.publish(lwheel_motorcmd);
