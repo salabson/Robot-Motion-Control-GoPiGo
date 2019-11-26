@@ -40,7 +40,7 @@ class BaseController{
 		 double kp;
 		 double ki;
 		 double kd;
-
+		 bool pid_on;
 	public:
 		BaseController(ros::NodeHandle *nh){
 
@@ -73,6 +73,7 @@ class BaseController{
 			kp = 0.0;
 			ki = 0.0;
 			kd = 0.0;
+			pid_on = false;
 		
 			
 		}
@@ -196,6 +197,32 @@ class BaseController{
 		
 		}
 		
+		void update_lwheel(){
+			double angular_vel_target = tangential_2_angular_vel(lwheel_tangential_vel_target);
+			if(pid_on){
+				double angular_vel_target_pid =pid(angular_vel_target, lwheel_angular_vel_enc);
+				lwheel_motorcmd.data = angular_2_motor_cmd(angular_vel_target_pid);
+			}else{
+				
+				lwheel_motorcmd.data = angular_2_motor_cmd(angular_vel_target);
+                             }
+			lwheel_motorcmd_pub.publish(lwheel_motorcmd);
+
+		}
+		
+
+		void update_rwheel(){
+                        double angular_vel_target = tangential_2_angular_vel(rwheel_tangential_vel_target);
+                        if(pid_on){
+                                double angular_vel_target_pid =pid(angular_vel_target, rwheel_angular_vel_enc);
+                                lwheel_motorcmd.data = angular_2_motor_cmd(angular_vel_target_pid);
+                        }else{
+
+                                lwheel_motorcmd.data = angular_2_motor_cmd(angular_vel_target);
+                             }
+                        rwheel_motorcmd_pub.publish(rwheel_motorcmd);
+
+                }
 
 		void spin(){
 			ros::Rate rate(20);
@@ -203,11 +230,8 @@ class BaseController{
         		//start publishing
         		while(ros::ok()){ 
 				ROS_INFO("rtan: %f ltan: %f", rwheel_tangential_vel_target, lwheel_tangential_vel_target);
-				rwheel_motorcmd.data = calculate_motorcmd(rwheel_tangential_vel_target);
-				lwheel_motorcmd.data = calculate_motorcmd(lwheel_tangential_vel_target);
-
-				rwheel_motorcmd_pub.publish(rwheel_motorcmd);
-				lwheel_motorcmd_pub.publish(lwheel_motorcmd);
+				update_lwheel();
+				update_rwheel();
 				ros::spinOnce();
 				rate.sleep();
        			 }
