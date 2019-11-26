@@ -30,7 +30,16 @@ class BaseController{
 
       		 // Create publishers objects
         	 ros::Publisher rwheel_motorcmd_pub;  
-        	 ros::Publisher lwheel_motorcmd_pub; 
+        	 ros::Publisher lwheel_motorcmd_pub;
+		
+		//pid parameters	
+		 ros::Time current_timestamp;
+		 ros::Time last_timestamp;
+		 double last_error;
+		 double error_sum;
+		 double kp;
+		 double ki;
+		 double kd;
 
 	public:
 		BaseController(ros::NodeHandle *nh){
@@ -55,7 +64,16 @@ class BaseController{
         		// Initialize publishers objects
         		rwheel_motorcmd_pub = nh->advertise<std_msgs::Float32>("/rwheel_motorcmd",10);  
         		lwheel_motorcmd_pub = nh->advertise<std_msgs::Float32>("/lwheel_motorcmd",10); 
-
+			 
+			// initialize pid parameters
+			current_timestamp = ros::Time::now();
+			last_timestamp = ros::Time::now();
+			last_error = 0.0;
+			error_sum = 0.0;
+			kp = 0.0;
+			ki = 0.0;
+			kd = 0.0;
+		
 			
 		}
 		
@@ -140,7 +158,36 @@ class BaseController{
 
 		}
 
+		// PID control
+		double pid(double target_angular_vel, double measured_angular_vel){
+			current_timestamp = ros::Time::now();
+			double delta_time = (current_timestamp-last_timestamp).toSec();
+			//delta time is zero
+			if(delta_time == 0) return 0;
 
+			//calculate proportional error
+			double error = target_angular_vel - measured_angular_vel;
+			double p = kp*error;
+			
+			// calculate integral error
+			error_sum+=error*delta_time;
+			double i = ki*error_sum;
+
+			// calculate derivative error
+			double delta_error = error - last_error;
+			double d = kd*delta_error/delta_time;
+			
+			double control_signal = p+i+d;
+			
+			// save the current data for next iteration
+			last_timestamp = current_timestamp;
+			last_error = error;
+			
+			return control_signal;
+		
+
+		
+		}
 
 		// Compute  motor command
 		double  calculate_motorcmd(double tang_vel){
