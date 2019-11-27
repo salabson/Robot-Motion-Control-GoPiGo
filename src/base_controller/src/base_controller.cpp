@@ -215,10 +215,10 @@ class BaseController{
                         double angular_vel_target = tangential_2_angular_vel(rwheel_tangential_vel_target);
                         if(pid_on){
                                 double angular_vel_target_pid =pid(angular_vel_target, rwheel_angular_vel_enc);
-                                lwheel_motorcmd.data = angular_2_motor_cmd(angular_vel_target_pid);
+                                rwheel_motorcmd.data = angular_2_motor_cmd(angular_vel_target_pid);
                         }else{
 
-                                lwheel_motorcmd.data = angular_2_motor_cmd(angular_vel_target);
+                                rwheel_motorcmd.data = angular_2_motor_cmd(angular_vel_target);
                              }
                         rwheel_motorcmd_pub.publish(rwheel_motorcmd);
 
