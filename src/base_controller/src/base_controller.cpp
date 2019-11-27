@@ -70,7 +70,7 @@ class BaseController{
 			last_timestamp = ros::Time::now();
 			last_error = 0.0;
 			error_sum = 0.0;
-			kp = 0.0;
+			kp = 0.1;
 			ki = 0.0;
 			kd = 0.0;
 			pid_on = false;

@@ -6,18 +6,18 @@
 
 class DiffDrive{
 	private:
-		std_msgs::Float32 rwheel_tangential_vel;
-		std_msgs::Float32 lwheel_tangential_vel;
+		std_msgs::Float32 rwheel_tangential_vel_target;
+		std_msgs::Float32 lwheel_tangential_vel_target;
 		
 		//Distance between the wheels
 		double robot_width;
 
 	        // Create subscriber object
-       		ros::Subscriber vel_sub;
+       		ros::Subscriber cmd_vel_sub;
         
         	// Create publisher objects
-        	ros::Publisher  rwheel_tang_vel_pub; 
-        	ros::Publisher  lwheel_tang_vel_pub; 
+        	ros::Publisher  rwheel_tang_vel_target_pub; 
+        	ros::Publisher  lwheel_tang_vel_target_pub; 
 		
 	public:
 		//Create class constructor
@@ -26,11 +26,11 @@ class DiffDrive{
 			robot_width=0.14;
 			
 			//Initialize subscriber object
-        		vel_sub = nh->subscribe("/cmd_vel", 10, &DiffDrive::cmd_vel_callback, this);
+        		cmd_vel_sub = nh->subscribe("/cmd_vel", 10, &DiffDrive::cmd_vel_callback, this);
         
         		//Initialize publisher objects
-       			rwheel_tang_vel_pub = nh->advertise<std_msgs::Float32>("/rwheel_tangential_vel", 10); 
-        		lwheel_tang_vel_pub = nh->advertise<std_msgs::Float32>("/lwheel_tangential_vel", 10); 
+       			rwheel_tang_vel_target_pub = nh->advertise<std_msgs::Float32>("/rwheel_tangential_vel_target", 10); 
+        		lwheel_tang_vel_target_pub = nh->advertise<std_msgs::Float32>("/lwheel_tangential_vel_target", 10); 
 		}
         
 		
@@ -57,8 +57,8 @@ class DiffDrive{
 
 			}
 
-			rwheel_tangential_vel.data = vr;
-			lwheel_tangential_vel.data = vl;
+			rwheel_tangential_vel_target.data = vr;
+			lwheel_tangential_vel_target.data = vl;
 		}
 
 
@@ -68,8 +68,8 @@ class DiffDrive{
         
         		// start publishing
         		while(ros::ok()){
-				rwheel_tang_vel_pub.publish(rwheel_tangential_vel);
-				lwheel_tang_vel_pub.publish(lwheel_tangential_vel);
+				rwheel_tang_vel_target_pub.publish(rwheel_tangential_vel_target);
+				lwheel_tang_vel_target_pub.publish(lwheel_tangential_vel_target);
 				ros::spinOnce();
 				rate.sleep();
 	       		 }
