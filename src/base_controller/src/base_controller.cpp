@@ -73,7 +73,7 @@ class BaseController{
 			kp = 0.1;
 			ki = 0.0;
 			kd = 0.0;
-			pid_on = false;
+			pid_on = true;
 		
 			
 		}
