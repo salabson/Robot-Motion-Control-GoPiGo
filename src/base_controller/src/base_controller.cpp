@@ -214,7 +214,7 @@ class BaseController{
 		void update_rwheel(){
                         double angular_vel_target = tangential_2_angular_vel(rwheel_tangential_vel_target);
                         if(pid_on){
-                                double angular_vel_target_pid =pid(angular_vel_target, rwheel_angular_vel_enc);
+                                double angular_vel_target_pid =pid(lwheel_angular_vel_enc, rwheel_angular_vel_enc);
                                 rwheel_motorcmd.data = angular_2_motor_cmd(angular_vel_target_pid);
                         }else{
 
