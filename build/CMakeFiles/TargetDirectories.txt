@@ -98,3 +98,11 @@
 /home/salabson/gopigo_ws/build/gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir
 /home/salabson/gopigo_ws/build/gopigo_interface/CMakeFiles/edit_cache.dir
 /home/salabson/gopigo_ws/build/gopigo_interface/CMakeFiles/gopigo_interface_gennodejs.dir
+/home/salabson/gopigo_ws/build/robot_state_updater/CMakeFiles/list_install_components.dir
+/home/salabson/gopigo_ws/build/robot_state_updater/CMakeFiles/install.dir
+/home/salabson/gopigo_ws/build/robot_state_updater/CMakeFiles/rebuild_cache.dir
+/home/salabson/gopigo_ws/build/robot_state_updater/CMakeFiles/edit_cache.dir
+/home/salabson/gopigo_ws/build/robot_state_updater/CMakeFiles/robot_state_updater.dir
+/home/salabson/gopigo_ws/build/robot_state_updater/CMakeFiles/install/strip.dir
+/home/salabson/gopigo_ws/build/robot_state_updater/CMakeFiles/install/local.dir
+/home/salabson/gopigo_ws/build/robot_state_updater/CMakeFiles/test.dir

@@ -322,6 +322,9 @@ gopigo_description_SOURCE_DIR:STATIC=/home/salabson/gopigo_ws/src/gopigo_descrip
 //Value Computed by CMake
 gopigo_interface_BINARY_DIR:STATIC=/home/salabson/gopigo_ws/build/gopigo_interface
 
+//The directory containing a CMake configuration file for gopigo_interface.
+gopigo_interface_DIR:PATH=/home/salabson/gopigo_ws/devel/share/gopigo_interface/cmake
+
 //Value Computed by CMake
 gopigo_interface_SOURCE_DIR:STATIC=/home/salabson/gopigo_ws/src/gopigo_interface
 
@@ -351,13 +354,19 @@ gtest_force_shared_crt:BOOL=OFF
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/kinetic/lib/librostime.so
+lib:FILEPATH=/opt/ros/kinetic/lib/libxmlrpcpp.so
 
 //The directory containing a CMake configuration file for message_generation.
 message_generation_DIR:PATH=/opt/ros/kinetic/share/message_generation/cmake
 
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/kinetic/share/message_runtime/cmake
+
+//Value Computed by CMake
+robot_state_updater_BINARY_DIR:STATIC=/home/salabson/gopigo_ws/build/robot_state_updater
+
+//Value Computed by CMake
+robot_state_updater_SOURCE_DIR:STATIC=/home/salabson/gopigo_ws/src/robot_state_updater
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/kinetic/share/rosconsole/cmake
@@ -494,7 +503,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

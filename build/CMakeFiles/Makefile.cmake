@@ -23,8 +23,13 @@ set(CMAKE_MAKEFILE_DEPENDS
   "gopigo_interface/catkin_generated/ordered_paths.cmake"
   "gopigo_interface/catkin_generated/package.cmake"
   "gopigo_interface/cmake/gopigo_interface-genmsg.cmake"
+  "robot_state_updater/catkin_generated/ordered_paths.cmake"
+  "robot_state_updater/catkin_generated/package.cmake"
   "teleop_twist_keyboard/catkin_generated/package.cmake"
+  "/home/salabson/gopigo_ws/devel/share/gopigo_interface/cmake/gopigo_interface-msg-extras.cmake"
   "/home/salabson/gopigo_ws/devel/share/gopigo_interface/cmake/gopigo_interface-msg-paths.cmake"
+  "/home/salabson/gopigo_ws/devel/share/gopigo_interface/cmake/gopigo_interfaceConfig-version.cmake"
+  "/home/salabson/gopigo_ws/devel/share/gopigo_interface/cmake/gopigo_interfaceConfig.cmake"
   "/home/salabson/gopigo_ws/src/CMakeLists.txt"
   "/home/salabson/gopigo_ws/src/base_controller/CMakeLists.txt"
   "/home/salabson/gopigo_ws/src/base_controller/package.xml"
@@ -34,6 +39,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/salabson/gopigo_ws/src/gopigo_description/package.xml"
   "/home/salabson/gopigo_ws/src/gopigo_interface/CMakeLists.txt"
   "/home/salabson/gopigo_ws/src/gopigo_interface/package.xml"
+  "/home/salabson/gopigo_ws/src/robot_state_updater/CMakeLists.txt"
+  "/home/salabson/gopigo_ws/src/robot_state_updater/package.xml"
   "/home/salabson/gopigo_ws/src/teleop_twist_keyboard/CMakeLists.txt"
   "/home/salabson/gopigo_ws/src/teleop_twist_keyboard/package.xml"
   "/home/salabson/gopigo_ws/src/teleop_twist_keyboard/teleop_twist_keyboard.py"
@@ -206,6 +213,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "base_controller/CMakeFiles/CMakeDirectoryInformation.cmake"
   "diffdrive_controller/CMakeFiles/CMakeDirectoryInformation.cmake"
   "gopigo_interface/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "robot_state_updater/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -254,4 +262,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "gopigo_interface/CMakeFiles/_gopigo_interface_generate_messages_check_deps_Encoder.dir/DependInfo.cmake"
   "gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/DependInfo.cmake"
   "gopigo_interface/CMakeFiles/gopigo_interface_gennodejs.dir/DependInfo.cmake"
+  "robot_state_updater/CMakeFiles/robot_state_updater.dir/DependInfo.cmake"
   )

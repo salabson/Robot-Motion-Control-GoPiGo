@@ -737,6 +737,19 @@ gopigo_interface_gennodejs/fast:
 	$(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_gennodejs.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_gennodejs.dir/build
 .PHONY : gopigo_interface_gennodejs/fast
 
+#=============================================================================
+# Target rules for targets named robot_state_updater
+
+# Build rule for target.
+robot_state_updater: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 robot_state_updater
+.PHONY : robot_state_updater
+
+# fast build rule for target.
+robot_state_updater/fast:
+	$(MAKE) -f robot_state_updater/CMakeFiles/robot_state_updater.dir/build.make robot_state_updater/CMakeFiles/robot_state_updater.dir/build
+.PHONY : robot_state_updater/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -794,6 +807,7 @@ help:
 	@echo "... _gopigo_interface_generate_messages_check_deps_Encoder"
 	@echo "... gopigo_interface_generate_messages_nodejs"
 	@echo "... gopigo_interface_gennodejs"
+	@echo "... robot_state_updater"
 .PHONY : help
 
 

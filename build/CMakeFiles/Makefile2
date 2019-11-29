@@ -1652,6 +1652,61 @@ clean: gopigo_interface/CMakeFiles/gopigo_interface_gennodejs.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory robot_state_updater
+
+# Convenience name for "all" pass in the directory.
+robot_state_updater/all: robot_state_updater/CMakeFiles/robot_state_updater.dir/all
+
+.PHONY : robot_state_updater/all
+
+# Convenience name for "clean" pass in the directory.
+robot_state_updater/clean: robot_state_updater/CMakeFiles/robot_state_updater.dir/clean
+
+.PHONY : robot_state_updater/clean
+
+# Convenience name for "preinstall" pass in the directory.
+robot_state_updater/preinstall:
+
+.PHONY : robot_state_updater/preinstall
+
+#=============================================================================
+# Target rules for target robot_state_updater/CMakeFiles/robot_state_updater.dir
+
+# All Build rule for target.
+robot_state_updater/CMakeFiles/robot_state_updater.dir/all:
+	$(MAKE) -f robot_state_updater/CMakeFiles/robot_state_updater.dir/build.make robot_state_updater/CMakeFiles/robot_state_updater.dir/depend
+	$(MAKE) -f robot_state_updater/CMakeFiles/robot_state_updater.dir/build.make robot_state_updater/CMakeFiles/robot_state_updater.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=23,24 "Built target robot_state_updater"
+.PHONY : robot_state_updater/CMakeFiles/robot_state_updater.dir/all
+
+# Include target in all.
+all: robot_state_updater/CMakeFiles/robot_state_updater.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+robot_state_updater/CMakeFiles/robot_state_updater.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/salabson/gopigo_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 robot_state_updater/CMakeFiles/robot_state_updater.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/salabson/gopigo_ws/build/CMakeFiles 0
+.PHONY : robot_state_updater/CMakeFiles/robot_state_updater.dir/rule
+
+# Convenience name for target.
+robot_state_updater: robot_state_updater/CMakeFiles/robot_state_updater.dir/rule
+
+.PHONY : robot_state_updater
+
+# clean rule for target.
+robot_state_updater/CMakeFiles/robot_state_updater.dir/clean:
+	$(MAKE) -f robot_state_updater/CMakeFiles/robot_state_updater.dir/build.make robot_state_updater/CMakeFiles/robot_state_updater.dir/clean
+.PHONY : robot_state_updater/CMakeFiles/robot_state_updater.dir/clean
+
+# clean rule for target.
+clean: robot_state_updater/CMakeFiles/robot_state_updater.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

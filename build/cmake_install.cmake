@@ -122,6 +122,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/salabson/gopigo_ws/build/base_controller/cmake_install.cmake")
   include("/home/salabson/gopigo_ws/build/diffdrive_controller/cmake_install.cmake")
   include("/home/salabson/gopigo_ws/build/gopigo_interface/cmake_install.cmake")
+  include("/home/salabson/gopigo_ws/build/robot_state_updater/cmake_install.cmake")
 
 endif()
 

@@ -1,0 +1,8 @@
+prefix=/home/salabson/gopigo_ws/install
+
+Name: robot_state_updater
+Description: Description of robot_state_updater
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/salabson/gopigo_ws/install/lib 
+Requires: 
