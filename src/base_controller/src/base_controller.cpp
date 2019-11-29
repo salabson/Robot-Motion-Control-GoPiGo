@@ -183,6 +183,15 @@ class BaseController{
 			// save the current data for next iteration
 			last_timestamp = current_timestamp;
 			last_error = error;
+
+            // ensure that control signal does not flip sign of target velocity
+            if(target_angular_vel > 0 and control_signal < 0)
+                    control_signal=target_angular_vel;
+            if(target_angular_vel < 0 and control_signal > 0)
+                    control_signal = target_angular_vel;
+            
+            if (target_angular_vel == 0)
+                    return 0;
 			
 			return control_signal;
 		
