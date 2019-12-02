@@ -246,7 +246,7 @@ gtest/preinstall: gtest/gtest/preinstall
 gtest/CMakeFiles/gmock.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gmock.dir/build.make gtest/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gmock.dir/build.make gtest/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=5,6,7 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=7,8,9 "Built target gmock"
 .PHONY : gtest/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -278,7 +278,7 @@ clean: gtest/CMakeFiles/gmock.dir/clean
 gtest/CMakeFiles/gmock_main.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gmock_main.dir/build.make gtest/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gmock_main.dir/build.make gtest/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=8,9,10,11 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=10,11,12,13 "Built target gmock_main"
 .PHONY : gtest/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -329,7 +329,7 @@ gtest/gtest/preinstall:
 gtest/gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest.dir/build.make gtest/gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest.dir/build.make gtest/gtest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=19,20 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=21,22 "Built target gtest"
 .PHONY : gtest/gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -361,7 +361,7 @@ clean: gtest/gtest/CMakeFiles/gtest.dir/clean
 gtest/gtest/CMakeFiles/gtest_main.dir/all: gtest/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest_main.dir/build.make gtest/gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest_main.dir/build.make gtest/gtest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=21,22 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=23,24 "Built target gtest_main"
 .PHONY : gtest/gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1228,12 +1228,12 @@ clean: diffdrive_controller/CMakeFiles/diffdrive_controller.dir/clean
 # Directory level rules for directory diffdrive_odom
 
 # Convenience name for "all" pass in the directory.
-diffdrive_odom/all:
+diffdrive_odom/all: diffdrive_odom/CMakeFiles/diffdrive_odom.dir/all
 
 .PHONY : diffdrive_odom/all
 
 # Convenience name for "clean" pass in the directory.
-diffdrive_odom/clean:
+diffdrive_odom/clean: diffdrive_odom/CMakeFiles/diffdrive_odom.dir/clean
 
 .PHONY : diffdrive_odom/clean
 
@@ -1241,6 +1241,43 @@ diffdrive_odom/clean:
 diffdrive_odom/preinstall:
 
 .PHONY : diffdrive_odom/preinstall
+
+#=============================================================================
+# Target rules for target diffdrive_odom/CMakeFiles/diffdrive_odom.dir
+
+# All Build rule for target.
+diffdrive_odom/CMakeFiles/diffdrive_odom.dir/all:
+	$(MAKE) -f diffdrive_odom/CMakeFiles/diffdrive_odom.dir/build.make diffdrive_odom/CMakeFiles/diffdrive_odom.dir/depend
+	$(MAKE) -f diffdrive_odom/CMakeFiles/diffdrive_odom.dir/build.make diffdrive_odom/CMakeFiles/diffdrive_odom.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=5,6 "Built target diffdrive_odom"
+.PHONY : diffdrive_odom/CMakeFiles/diffdrive_odom.dir/all
+
+# Include target in all.
+all: diffdrive_odom/CMakeFiles/diffdrive_odom.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+diffdrive_odom/CMakeFiles/diffdrive_odom.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/salabson/gopigo_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 diffdrive_odom/CMakeFiles/diffdrive_odom.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/salabson/gopigo_ws/build/CMakeFiles 0
+.PHONY : diffdrive_odom/CMakeFiles/diffdrive_odom.dir/rule
+
+# Convenience name for target.
+diffdrive_odom: diffdrive_odom/CMakeFiles/diffdrive_odom.dir/rule
+
+.PHONY : diffdrive_odom
+
+# clean rule for target.
+diffdrive_odom/CMakeFiles/diffdrive_odom.dir/clean:
+	$(MAKE) -f diffdrive_odom/CMakeFiles/diffdrive_odom.dir/build.make diffdrive_odom/CMakeFiles/diffdrive_odom.dir/clean
+.PHONY : diffdrive_odom/CMakeFiles/diffdrive_odom.dir/clean
+
+# clean rule for target.
+clean: diffdrive_odom/CMakeFiles/diffdrive_odom.dir/clean
+
+.PHONY : clean
 
 #=============================================================================
 # Directory level rules for directory gopigo_interface
@@ -1279,7 +1316,7 @@ gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/all: base_
 gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/all: gopigo_interface/CMakeFiles/_gopigo_interface_generate_messages_check_deps_Encoder.dir/all
 	$(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/depend
 	$(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=17,18 "Built target gopigo_interface_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=19,20 "Built target gopigo_interface_generate_messages_py"
 .PHONY : gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1312,7 +1349,7 @@ gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/all: base
 gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/all: gopigo_interface/CMakeFiles/_gopigo_interface_generate_messages_check_deps_Encoder.dir/all
 	$(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/depend
 	$(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=12 "Built target gopigo_interface_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=14 "Built target gopigo_interface_generate_messages_cpp"
 .PHONY : gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1450,7 +1487,7 @@ gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/all: base
 gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/all: gopigo_interface/CMakeFiles/_gopigo_interface_generate_messages_check_deps_Encoder.dir/all
 	$(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/depend
 	$(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=13,14 "Built target gopigo_interface_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=15,16 "Built target gopigo_interface_generate_messages_eus"
 .PHONY : gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1547,7 +1584,7 @@ gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/all: bas
 gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/all: gopigo_interface/CMakeFiles/_gopigo_interface_generate_messages_check_deps_Encoder.dir/all
 	$(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/depend
 	$(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=15 "Built target gopigo_interface_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=17 "Built target gopigo_interface_generate_messages_lisp"
 .PHONY : gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1612,7 +1649,7 @@ gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/all: b
 gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/all: gopigo_interface/CMakeFiles/_gopigo_interface_generate_messages_check_deps_Encoder.dir/all
 	$(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/depend
 	$(MAKE) -f gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/build.make gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=16 "Built target gopigo_interface_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=18 "Built target gopigo_interface_generate_messages_nodejs"
 .PHONY : gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1694,7 +1731,7 @@ robot_state_updater/preinstall:
 robot_state_updater/CMakeFiles/robot_state_updater.dir/all:
 	$(MAKE) -f robot_state_updater/CMakeFiles/robot_state_updater.dir/build.make robot_state_updater/CMakeFiles/robot_state_updater.dir/depend
 	$(MAKE) -f robot_state_updater/CMakeFiles/robot_state_updater.dir/build.make robot_state_updater/CMakeFiles/robot_state_updater.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=23,24 "Built target robot_state_updater"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/salabson/gopigo_ws/build/CMakeFiles --progress-num=25,26 "Built target robot_state_updater"
 .PHONY : robot_state_updater/CMakeFiles/robot_state_updater.dir/all
 
 # Include target in all.

@@ -582,6 +582,19 @@ diffdrive_controller/fast:
 .PHONY : diffdrive_controller/fast
 
 #=============================================================================
+# Target rules for targets named diffdrive_odom
+
+# Build rule for target.
+diffdrive_odom: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 diffdrive_odom
+.PHONY : diffdrive_odom
+
+# fast build rule for target.
+diffdrive_odom/fast:
+	$(MAKE) -f diffdrive_odom/CMakeFiles/diffdrive_odom.dir/build.make diffdrive_odom/CMakeFiles/diffdrive_odom.dir/build
+.PHONY : diffdrive_odom/fast
+
+#=============================================================================
 # Target rules for targets named gopigo_interface_generate_messages_py
 
 # Build rule for target.
@@ -795,6 +808,7 @@ help:
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... diffdrive_controller"
+	@echo "... diffdrive_odom"
 	@echo "... gopigo_interface_generate_messages_py"
 	@echo "... gopigo_interface_generate_messages_cpp"
 	@echo "... gopigo_interface_gencpp"

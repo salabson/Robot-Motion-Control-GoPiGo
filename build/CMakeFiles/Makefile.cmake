@@ -255,6 +255,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "diffdrive_controller/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/DependInfo.cmake"
   "diffdrive_controller/CMakeFiles/geometry_msgs_generate_messages_py.dir/DependInfo.cmake"
   "diffdrive_controller/CMakeFiles/diffdrive_controller.dir/DependInfo.cmake"
+  "diffdrive_odom/CMakeFiles/diffdrive_odom.dir/DependInfo.cmake"
   "gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_py.dir/DependInfo.cmake"
   "gopigo_interface/CMakeFiles/gopigo_interface_generate_messages_cpp.dir/DependInfo.cmake"
   "gopigo_interface/CMakeFiles/gopigo_interface_gencpp.dir/DependInfo.cmake"
