@@ -10,6 +10,8 @@ project(diffdrive_odom)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
+  tf
+  geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions

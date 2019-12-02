@@ -1,5 +1,10 @@
 #include<ros/ros.h>
 #include<std_msgs/Float32.h>
+#include<tf/transform_broadcaster.h>
+#include<geometry_msgs/TransformStamped.h>
+#include<geometry_msgs/Quaternion.h>
+#include<nav_msgs/Odometry.h>
+#include<math.h>
 
 double robot_width = 0.14;
 double robot_radius = 0.03;
@@ -54,6 +59,8 @@ int main(int argc, char** argv){
         ros::Subscriber rwheel_angular_vel_enc_sub = nh.subscribe("rwheel_angular_vel_enc", 10,
                                 rwheel_angular_vel_enc_callback);
 
+        ros::Publisher odom_pub = nh.advertise<nav_msgs::Odometry>("/odom",10);
+
         ros::Time current_timestamp = ros::Time::now();
         ros::Time last_timestamp = ros::Time::now();
 
@@ -86,9 +93,55 @@ int main(int argc, char** argv){
                     y=y+(sin(w*dt)*R*sin(th)) + (cos(w*dt)*-R*cos(th)) + (y+R*cos(th));
                     th=th+w*dt;
             }
+            ROS_INFO("x: %f y: %f th: %f v: %f w: %f", x, y,th,v,w);
+
+            // set up TF
+            tf::TransformBroadcaster broadcaster;
+            geometry_msgs::TransformStamped odom_trans;
+            odom_trans.header.stamp = current_timestamp;
+            odom_trans.header.frame_id ="odom";
+            odom_trans.child_frame_id ="base_footprint";
+
+            //update tf
+            odom_trans.transform.translation.x = x;
+            odom_trans.transform.translation.y = y;
+            odom_trans.transform.translation.z = 0.0;
+            odom_trans.transform.rotation =  tf::createQuaternionMsgFromYaw(th);
+
+
+            // set up odom
+            geometry_msgs::Quaternion odom_quat;
+            odom_quat = tf::createQuaternionMsgFromRollPitchYaw(0.0,0.0,th);
+            nav_msgs::Odometry odom;
+            odom.header.stamp = current_timestamp;
+            odom.header.frame_id="odom";
+            odom.child_frame_id="base_footprint";
+
+            //update odom position
+            odom.pose.pose.position.x = x;
+            odom.pose.pose.position.y = y;
+            odom.pose.pose.position.z = 0.0;
+            odom.pose.pose.orientation = odom_quat;
+
+            // update odom velocity
+            odom.twist.twist.linear.x = v;
+            odom.twist.twist.linear.y = 0.0;
+            odom.twist.twist.linear.z = 0.0;
+            odom.twist.twist.angular.x = 0.0;
+            odom.twist.twist.angular.y = 0.0;
+            odom.twist.twist.angular.z = w;
+
+            // publish odom and tf data
+            odom_pub.publish(odom);
+            broadcaster.sendTransform(odom_trans);
+
             // save current time for next iteration
             last_timestamp = current_timestamp;
 
+            ros::spinOnce();
+            rate.sleep();
+
         }
+        return 0;
 }
 
